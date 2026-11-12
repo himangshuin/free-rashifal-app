@@ -10,7 +10,7 @@ const S_GRID=[11,0,1,2,10,null,null,3,9,null,null,4,8,7,6,5];
 const pts=p=>{const o=[];for(let i=0;i<p.length;i+=2)o.push(p[i].toFixed(1)+','+p[i+1].toFixed(1));return o.join(' ')};
 function blk(x,y,label,pl,per){const rows=[];for(let i=0;i<pl.length;i+=per)rows.push(pl.slice(i,i+per).join(' '));
  const h=15,n=rows.length+1,y0=y-(n-1)*h/2;
- return`<text x="${x}" y="${y0}" text-anchor="middle" dominant-baseline="central" fill="var(--mu)" font-size="11">${label}</text>`+rows.map((r,i)=>`<text x="${x}" y="${y0+(i+1)*h}" text-anchor="middle" dominant-baseline="central" fill="var(--tx)" font-size="13">${r}</text>`).join('')}
+ return`<text x="${x}" y="${y0}" text-anchor="middle" dominant-baseline="central" fill="var(--mu)" font-size="13">${label}</text>`+rows.map((r,i)=>`<text x="${x}" y="${y0+(i+1)*h}" text-anchor="middle" dominant-baseline="central" fill="var(--tx)" font-size="17">${r}</text>`).join('')}
 // st: 'e' | 'n' | 's';  f(planetKey) -> sign index 0..11;  title: text for the centre
 function drawChart(st,f,title){
  const lg=f('Lagna'),P=s=>(s==lg?[AB.Lagna]:[]).concat(PN10.filter(k=>k!='Lagna'&&f(k)==s).map(k=>AB[k])),hl=p=>`<polygon points="${pts(p)}" fill="var(--ac)" fill-opacity=".16"/>`;
@@ -18,7 +18,7 @@ function drawChart(st,f,title){
  if(st=='e'){
   g=hl(E_POLY[lg])+`<g fill="none" stroke="var(--chart-line)" stroke-width="2"><rect x="1" y="1" width="398" height="398"/><path d="M${EA} 0V400M${EB} 0V400M0 ${EA}H400M0 ${EB}H400M0 0L${EA} ${EA}M400 0L${EB} ${EA}M0 400L${EA} ${EB}M400 400L${EB} ${EB}"/></g>`;
   E_POS.forEach((p,s)=>t+=blk(p[0],p[1],s+1,P(s),3));
-  t+=`<text x="200" y="192" text-anchor="middle" fill="var(--ac)" font-size="15">${title}</text><text x="200" y="214" text-anchor="middle" fill="var(--mu)" font-size="12">${tx('Lagna')}: ${SG[lg]}</text>`}
+  t+=`<text x="200" y="192" text-anchor="middle" fill="var(--ac)" font-size="17">${title}</text><text x="200" y="214" text-anchor="middle" fill="var(--mu)" font-size="14">${tx('Lagna')}: ${SG[lg]}</text>`}
  else if(st=='n'){
   g=hl(N_POLY[0])+`<g fill="none" stroke="var(--chart-line)" stroke-width="2"><rect x="1" y="1" width="398" height="398"/><path d="M0 0L400 400M400 0L0 400M200 0L400 200L200 400L0 200Z"/></g>`;
   N_POS.forEach((p,i)=>{const s=(lg+i)%12;t+=blk(p[0],p[1],s+1,P(s),3)})}
@@ -26,6 +26,6 @@ function drawChart(st,f,title){
   S_GRID.forEach((s,i)=>{if(s===null||s!=lg)return;const x=(i%4)*100,y=(i>>2)*100;g+=hl([x,y,x+100,y,x+100,y+100,x,y+100])});
   g+=`<g fill="none" stroke="var(--chart-line)" stroke-width="2"><rect x="1" y="1" width="398" height="398"/><path d="M100 0V400M300 0V400M0 100H400M0 300H400M200 0V100M200 300V400M0 200H100M300 200H400"/></g>`;
   S_GRID.forEach((s,i)=>{if(s===null)return;const x=(i%4)*100,y=(i>>2)*100,pl=P(s),rows=[];for(let k=0;k<pl.length;k+=3)rows.push(pl.slice(k,k+3).join(' '));
-   t+=`<text x="${x+5}" y="${y+14}" fill="var(--mu)" font-size="11">${SG[s]}</text>`+rows.map((r,k)=>`<text x="${x+50}" y="${y+46+k*16}" text-anchor="middle" fill="var(--tx)" font-size="13">${r}</text>`).join('')});
-  t+=`<text x="200" y="192" text-anchor="middle" fill="var(--ac)" font-size="15">${title}</text><text x="200" y="214" text-anchor="middle" fill="var(--mu)" font-size="12">${tx('Lagna')}: ${SG[lg]}</text>`}
+   t+=`<text x="${x+5}" y="${y+14}" fill="var(--mu)" font-size="13">${SG[s]}</text>`+rows.map((r,k)=>`<text x="${x+50}" y="${y+46+k*16}" text-anchor="middle" fill="var(--tx)" font-size="17">${r}</text>`).join('')});
+  t+=`<text x="200" y="192" text-anchor="middle" fill="var(--ac)" font-size="17">${title}</text><text x="200" y="214" text-anchor="middle" fill="var(--mu)" font-size="14">${tx('Lagna')}: ${SG[lg]}</text>`}
  return`<svg viewBox="0 0 400 400" role="img" style="max-width:440px;width:100%;display:block;margin:auto">${g}${t}</svg>`}

@@ -1,6 +1,6 @@
 // Rashifal app UI. Assamese (default) and English.
 const $=id=>document.getElementById(id);
-let L='as',tab='everyone',cs='e',ws=0,meKind='w',meData=null,places=[],SG=SGN.as,TXM='';
+let L='as',tab='rashifal',cs='e',ws=0,meKind='w',meData=null,places=[],SG=SGN.as,TXM='';
 const AB={};
 const ABS={as:['ল','ৰ','চ','ম','বু','বৃ','শু','শ','ৰা','কে'],en:['As','Su','Mo','Ma','Me','Ju','Ve','Sa','Ra','Ke']};
 const tx=()=>TXM;
@@ -17,7 +17,7 @@ name:'নাম (ঐচ্ছিক)',dob:'জন্ম তাৰিখ',tob:'�
 cont:'জন্মকুণ্ডলীৰ গ্ৰহৰ লগত গোচৰৰ সংযোগ',slow:'ধীৰগতিৰ গ্ৰহ',sade:'শনি আপোনাৰ জন্মৰাশিৰ {h} স্থানত: সাড়ে-সাতী কাল। নিয়মীয়া কাম আৰু ধৈৰ্যই সহায় কৰে।',ash:'শনি আপোনাৰ জন্মৰাশিৰ ৮ম স্থানত: ডাঙৰ সিদ্ধান্তত লৰালৰি নকৰিব।',
 amb:'সেই দিনা চন্দ্ৰই ৰাশি সলনি কৰিছিল; সঠিক ফলৰ বাবে জন্ম সময় দিয়ক (ইয়াত দুপৰীয়া ১২টা ধৰা হৈছে)।',out:'এই তাৰিখৰ তথ্য নাই (১৯৩০–২০৬০ ৰ ভিতৰত দিয়ক)।',
 note:'গোচৰ ফল জ্যোতিষ দৰ্পণ (ত্ৰয়োদশ অধ্যায়) ৰ নিয়ম অনুসৰি জন্মৰাশিৰ পৰা গণনা কৰা হৈছে; গ্ৰহৰ গুৰুত্ব আৰু তাৰকা-মান এই এপৰ নিজা গণনা। ই কেৱল দিশ-নিৰ্দেশনাৰ বাবে।',
-ws:'সপ্তাহ আৰম্ভ',sun:'দেওবাৰ',mon:'সোমবাৰ',lang:'English',c1:'জন্ম-{b}ৰ ওপৰেদি {p}ৰ গোচৰ: {k}ৰ ক্ষেত্ৰত {t}।',lg:'লগ্ন',
+ws:'সপ্তাহ আৰম্ভ',nRash:'ৰাশিফল',nMine:'মোৰ',nAn:'বিশ্লেষণ',nCh:'চক্ৰ',all12:'সকলো ১২ ৰাশি',share:'শ্বেয়াৰ',themeL:'থীম',sun:'দেওবাৰ',mon:'সোমবাৰ',lang:'English',c1:'জন্ম-{b}ৰ ওপৰেদি {p}ৰ গোচৰ: {k}ৰ ক্ষেত্ৰত {t}।',lg:'লগ্ন',
 t_b:'সহায় আৰু উন্নতিৰ সম্ভাৱনা',t_Saturn:'ধীৰ কিন্তু পৰীক্ষামূলক চাপ, ধৈৰ্যই ফল দিয়ে',t_Mars:'উত্তাপ, তাড়াহুৰা আৰু সংঘৰ্ষ',t_Sun:'মনযোগ আৰু কামৰ চাপ',t_Rahu:'আকস্মিক মোড় আৰু অস্থিৰতা',t_Ketu:'আকস্মিক মোড় আৰু অস্থিৰতা'},
 en:{title:'Rashifal',sub:'Plain-language weekly rashifal for everyone, plus transit chart and analysis for astrologers',chart:'Transit chart',week:'Weekly',month:'Monthly',moon:'Moon (2 days)',me:'My rashifal',
 every:'For everyone',evT:'Planet changes',evR:'moves into {s}.',evN:'moves into {s} nakshatra.',evD:'Its effect will be seen for about {d} days.',good:'For you: favourable',bad:'For you: be careful',today:'Today',mine:'My rashi',copy:'Copy',copied:'Copied',best:'Most favourable',care:'Most careful',expand:'Expand all',date:'Date',time:'Time (IST)',planet:'Planet',rashi:'Rashi',deg:'Degree',retro:'R',house:'house',ved:'(weakened by vedha)',strong:'Strongest',watch:'Watch',more:'Planet details',
@@ -27,7 +27,7 @@ name:'Name (optional)',dob:'Date of birth',tob:'Time of birth',notime:'I don\u20
 cont:'Transits touching your birth planets',slow:'Slow planets',sade:'Saturn is in the {h} from your Moon sign: Sade Sati phase. Steady routines and patience help.',ash:'Saturn is in the 8th from your Moon sign: avoid rushing big decisions.',
 amb:'The Moon changed sign on your birth date; enter the birth time for an exact result (12:00 noon is assumed here).',out:'No data for this date (use 1930\u20132060).',
 note:'Transit results follow the rules of Jyotish Darpan (ch. 13) counted from the janma rashi; planet weights and star ratings are this app\u2019s own calculation. For guidance only.',
-ws:'Week starts',sun:'Sunday',mon:'Monday',lang:'\u0985\u09B8\u09AE\u09C0\u09AF\u09BC\u09BE',c1:'Transit {p} over your natal {b}: {t} around {k}.',lg:'lagna',
+ws:'Week starts',nRash:'Rashifal',nMine:'Mine',nAn:'Analysis',nCh:'Chart',all12:'All 12 signs',share:'Share',themeL:'Theme',sun:'Sunday',mon:'Monday',lang:'\u0985\u09B8\u09AE\u09C0\u09AF\u09BC\u09BE',c1:'Transit {p} over your natal {b}: {t} around {k}.',lg:'lagna',
 t_b:'support and growth',t_Saturn:'slow, testing pressure that rewards patience',t_Mars:'heat, urgency and friction',t_Sun:'spotlight and pressure to act',t_Rahu:'sudden turns and restlessness',t_Ketu:'sudden turns and restlessness'}};
 const GL=['\u2648','\u2649','\u264A','\u264B','\u264C','\u264D','\u264E','\u264F','\u2650','\u2651','\u2652','\u2653'].map(g=>g+'\uFE0E');
 let PIN=-1;try{PIN=+(localStorage.getItem('rp')??-1)}catch(e){}
@@ -70,42 +70,66 @@ function evBox(i,pr,lim){if(pr.kind!='w'||!pr.ev||!pr.ev.length)return'';const t
   what=(e.type=='r'?t.evR.replace('{s}',nm(SGN,e.s)):t.evN.replace('{s}',nm(NK,e.nak)));
   return`<li><b>${nm(PN,e.k)}</b> (${fd(e.t)}) ${what}${e.days?' '+t.evD.replace('{d}',n(e.days)):''} <em class="${c.s>0?'g':'r'}">${c.s>0?t.good:t.bad}: ${ph}</em></li>`}).join('');
  return`<div class="evb"><h5>${t.evT}</h5><ul>${li}</ul></div>`}
-function cardHtml(i,r,all,pr){const s=zStars((r.o-all.m)/all.sd),t=T();
- return`<article class="rc${PIN==i?' pin':''}" id="rc${i}"><header><h3><span class="gl">${GL[i]}</span>${nm(SGN,i)}</h3>${starsHtml(s)}</header><p class="vd">${verdict(s,r.ar,all.am)}</p>${bars(r.ar,all.am)}<details><summary>${t.more}</summary><ul>${pick(r,pr).map(it=>`<li>${lineTxt(it,pr)}</li>`).join('')}</ul></details>${evBox(i,pr)}
- <div class="acts"><button data-pin="${i}" aria-pressed="${PIN==i}">${PIN==i?'\u2605':'\u2606'} ${t.mine}</button><button data-copy="${i}">${t.copy}</button></div></article>`}
 function ingress(pr){const t=T(),ev=[];pr.S.forEach((a,k)=>{if(k==1)return;a.forEach((g,i)=>{if(i)ev.push([g.a,`${nm(PN,k)} \u2192 ${nm(SGN,g.s)}`])})});
  ev.sort((x,y)=>x[0]-y[0]);const mid=(pr.T0+pr.T1)/2,rt=[2,3,4,5,6].filter(k=>retro(k,mid)).map(k=>nm(PN,k));
  return`<div class="ing"><h4>${t.ing}</h4>${ev.length?`<ul>${ev.map(e=>`<li><time>${fd(e[0],1)}</time> ${e[1]}</li>`).join('')}</ul>`:`<p>${t.none}</p>`}<p class="rt">${t.retros}: ${rt.length?rt.join(', '):t.none}</p></div>`}
-function navRow(label){return`<div class="nav"><button data-nav="-1" aria-label="prev">\u2039</button><h2>${label}</h2><button data-nav="1" aria-label="next">\u203A</button></div>`}
-// ---- views ---------------------------------------------------------------
 function setAB(lg){ABS[K()].forEach((a,i)=>AB[i?PL[i-1]:'Lagna']=a);AB.Lagna=lg||''}
-function vChart(){const t=T(),jd=ancJd();if(!inRange(jd-4)||!inRange(jd+4))return`<p class="bad">${t.out}</p>`;
+// ---- new interface -------------------------------------------------------
+const IC={
+ r:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg>',
+ m:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>',
+ a:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg>',
+ c:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M12 3l9 9-9 9-9-9z"/></svg>'};
+const CARET='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>';
+let SEL=-1,anKind='w',popOpen=false,CUR=null;
+const band=s=>s>=4?'g':s==3?'y':'r';
+const strip=h=>h.replace(/<[^>]+>/g,'');
+function dateBar(label,o){o=o||{};const t=T(),dv=`${A.y}-${p2(A.m)}-${p2(A.d)}`,tv=`${p2(A.hh)}:${p2(A.mm)}`;
+ return`<div class="db"><button class="rb" data-nav="-1" aria-label="prev">\u2039</button><button class="dbl" data-pop aria-expanded="${popOpen}"><span>${label}</span>${CARET}</button><button class="rb" data-nav="1" aria-label="next">\u203A</button></div>
+<div class="pop${popOpen?' on':''}"><label>${t.date}<input type="date" id="cd" value="${dv}" min="1930-01-10" max="2060-12-01"></label>${o.time?`<label>${t.time}<input type="time" id="ct" value="${tv}"></label>`:''}${o.ws?`<label>${t.ws}<select id="ws"><option value="0"${ws==0?' selected':''}>${t.sun}</option><option value="1"${ws==1?' selected':''}>${t.mon}</option></select></label>`:''}<button id="td" class="sec">${t.today}</button></div>`}
+function summ(all){const t=T(),sr=all.rs.map(r=>zStars((r.o-all.m)/all.sd)),mx=Math.max(...sr),mn=Math.min(...sr),
+ nmz=v=>sr.map((x,i)=>x==v?nm(SGN,i):'').filter(Boolean).slice(0,3).join(', ');
+ return{sr,html:`<div class="sm"><p class="g"><span>${t.best}</span>${nmz(mx)}</p><p class="r"><span>${t.care}</span>${nmz(mn)}</p></div>`}}
+const shareText=i=>{const S=CUR.ST[i];return`${nm(SGN,i)} \u2013 ${document.querySelector('.dbl span').textContent}\n`+[S.lead+' '+S.trend,...S.areas.map(x=>x.txt),S.advice].map(x=>strip(x).trim()).join('\n')};
+// ---- Rashifal (everyone) ----
+function readHtml(i){const t=T(),{pr,ST}=CUR,S=ST[i],b=band(S.s);
+ return`<div class="rd-in ${b}"><header class="rd-h"><span class="rd-g" aria-hidden="true">${GL[i]}</span><div><h2>${nm(SGN,i)}</h2><p class="rd-s">${starsHtml(S.s)}<span>${t['v'+S.s]}</span></p></div></header>
+<p class="lead">${S.lead} ${S.trend}</p>
+<ol class="wk" title="${LG[K()]}">${S.days.map(d=>`<li class="${d.c}${d.today?' now':''}"><span class="trk"><i style="height:${Math.round(Math.max(14,Math.min(100,52+d.o*17)))}%"></i></span><b title="${DWF[K()][d.dow]}">${DW[K()][d.dow]}</b></li>`).join('')}</ol>
+${S.dayline?`<p class="dl">${S.dayline}</p>`:''}
+<ul class="ap">${S.areas.map(x=>`<li class="${x.tone}${x.a=='l'?' love':''}">${x.a=='l'?'\u2665 ':''}${x.txt}</li>`).join('')}</ul>
+<p class="adv">${S.advice}</p>${evBox(i,pr,3)}
+<div class="acts"><button class="sec" data-pin="${i}" aria-pressed="${PIN==i}">${PIN==i?'\u2605':'\u2606'} ${t.mine}</button><button class="sec" data-copy="${i}">${t.copy}</button><button class="sec" data-share="${i}">${t.share}</button></div></div>`}
+function vRashifal(){const t=T(),pr=periodOf('w');
+ if(pr.bad)return dateBar(fd(ancJd()),{ws:1})+`<p class="bad">${t.out}</p>`;
+ const all=all12(pr),sm=summ(all),ST=[...Array(12).keys()].map(i=>story(i,all.rs[i],pr,all));
+ CUR={pr,all,ST};if(SEL<0)SEL=PIN>=0?PIN:0;
+ const zr=ST.map((S,i)=>`<button data-sel="${i}" class="${band(S.s)}${SEL==i?' on':''}${PIN==i?' pn':''}" aria-pressed="${SEL==i}"><span class="md" aria-hidden="true">${GL[i]}</span><span class="zn"><b>${nm(SGN,i)}</b>${starsHtml(S.s)}</span></button>`).join('');
+ const ov=ST.map((S,i)=>`<button class="ovr${SEL==i?' on':''}" data-ov="${i}"><span class="gl" aria-hidden="true">${GL[i]}</span><span class="nm">${nm(SGN,i)}</span><span class="mn" aria-hidden="true">${S.days.map(d=>`<i class="${d.c}" style="height:${Math.round(Math.max(18,Math.min(100,52+d.o*17)))}%"></i>`).join('')}</span>${starsHtml(S.s)}</button>`).join('');
+ return dateBar(pr.label,{ws:1})+sm.html+`<div class="rv"><nav class="zr" id="zr" aria-label="${t.nRash}">${zr}</nav><article class="rd" id="reading">${readHtml(SEL)}</article></div><p class="lgd">${LG[K()]}</p><section class="ov"><h3>${t.all12}</h3>${ov}</section>`}
+function centerSel(){const z=$('zr'),b=z&&z.querySelector('.on');if(z&&b&&z.scrollWidth>z.clientWidth+2)z.scrollLeft=b.offsetLeft-(z.clientWidth-b.offsetWidth)/2}
+// ---- Analysis (week / month / moon) ----
+function vAnalysis(){const t=T(),k=anKind,pr=periodOf(k),
+ seg=`<div class="seg">${[['w','week'],['m','month'],['c','moon']].map(([x,l])=>`<button data-ak="${x}" class="${k==x?'on':''}">${t[l]}</button>`).join('')}</div>`;
+ if(pr.bad)return seg+dateBar(fd(ancJd()),{ws:k=='w'})+`<p class="bad">${t.out}</p>`;
+ const all=all12(pr),sm=summ(all),order=[...Array(12).keys()].sort((a,b)=>(b==PIN)-(a==PIN)||a-b);
+ const rows=order.map(i=>{const r=all.rs[i],s=sm.sr[i];
+  return`<details class="an-r" id="rc${i}"><summary><span class="gl" aria-hidden="true">${GL[i]}</span><span class="an-n">${nm(SGN,i)}</span>${starsHtml(s)}</summary><div class="an-b"><p class="vd">${verdict(s,r.ar,all.am)}</p>${bars(r.ar,all.am)}<h4>${t.more}</h4><ul class="ln">${pick(r,pr).map(it=>`<li>${lineTxt(it,pr)}</li>`).join('')}</ul>${evBox(i,pr,5)}<div class="acts"><button class="sec" data-pin="${i}" aria-pressed="${PIN==i}">${PIN==i?'\u2605':'\u2606'} ${t.mine}</button><button class="sec" data-copy="${i}">${t.copy}</button></div></div></details>`}).join('');
+ return seg+dateBar(pr.label,{ws:k=='w'})+sm.html+(k=='c'?'':ingress(pr))+`<div class="an-h"><button class="sec" data-all="1">${t.expand}</button></div><div class="an">${rows}</div>`}
+// ---- Transit chart ----
+function csSeg(){return`<div class="seg">${['e','n','s'].map((c,i)=>`<button data-cs="${c}" class="${cs==c?'on':''}">${L=='as'?['পূব','উত্তৰ','দক্ষিণ'][i]:['East','North','South'][i]}</button>`).join('')}</div>`}
+function vChart(){const t=T(),jd=ancJd();
+ if(!inRange(jd-4)||!inRange(jd+4))return dateBar(fd(jd,1),{time:1})+`<p class="bad">${t.out}</p>`;
  const p=pos(jd),sg=p.slice(1).map(l=>Math.floor(l/30));setAB('');TXM=t.moonsign;SG=SGN[K()];
  const svg=drawChart(cs,k=>k=='Lagna'?sg[1]:sg[PL.indexOf(k)],t.chartT);
  const rows=PL.map((P,k)=>{const l=p[k+1],d=l%30;return`<tr><td>${nm(PN,k)}</td><td>${nm(SGN,sg[k])}</td><td>${n(Math.floor(d))}\u00B0${n(p2(Math.floor(d%1*60)))}\u2032</td><td>${retro(k,jd)?t.retro:''}</td></tr>`}).join('');
  const g=segs(jd-3.5,jd+3.5)[1].find(g=>jd<=g.b);
- return`<div class="hero"><div class="cw"><div class="seg">${['e','n','s'].map((c,i)=>`<button data-cs="${c}" class="${cs==c?'on':''}">${L=='as'?['পূব','উত্তৰ','দক্ষিণ'][i]:['East','North','South'][i]}</button>`).join('')}</div>${svg}</div>
- <div><table class="pt"><thead><tr><th>${t.planet}</th><th>${t.rashi}</th><th>${t.deg}</th><th></th></tr></thead><tbody>${rows}</tbody></table>
- <p class="mw">${t.moonin} <b>${nm(SGN,g.s)}</b> ${t.inr}<br>${fd(g.a,1)} \u2013 ${fd(g.b,1)}</p></div></div>`}
-function vPeriod(kind){const t=T(),pr=periodOf(kind);if(pr.bad)return`<p class="bad">${t.out}</p>`;const all=all12(pr),sr=all.rs.map(r=>zStars((r.o-all.m)/all.sd)),mx=Math.max(...sr),mn=Math.min(...sr),nmz=v=>sr.map((x,i)=>x==v?nm(SGN,i):'').filter(Boolean).slice(0,3).join(', ');
- const order=[...Array(12).keys()].sort((a,b)=>(b==PIN)-(a==PIN)||a-b);
- return`${navRow(pr.label)}<p class="sum"><b>${t.best}:</b> ${nmz(mx)} <span>|</span> <b>${t.care}:</b> ${nmz(mn)}</p>
- <div class="chips">${[...Array(12).keys()].map(i=>`<button data-jump="${i}" class="${PIN==i?'on':''}">${GL[i]} ${nm(SGN,i)}</button>`).join('')}<button data-all="1" class="ex">${t.expand}</button></div>
- ${kind=='c'?'':ingress(pr)}<div class="grid">${order.map(i=>cardHtml(i,all.rs[i],all,pr)).join('')}</div>`}
-function cardE(i,r,all,pr){const t=T(),S=story(i,r,pr,all);
- return`<article class="rc e${PIN==i?' pin':''}" id="rc${i}"><div class="fr"><header><h3><span class="gl">${GL[i]}</span>${nm(SGN,i)}</h3>${starsHtml(S.s)}</header>
- <div class="story"><p class="lead">${S.lead} ${S.trend}</p><ol class="days" title="${LG[K()]}">${S.days.map(d=>`<li class="${d.c}${d.today?' now':''}" title="${DWF[K()][d.dow]}"><b>${DW[K()][d.dow]}</b><i></i></li>`).join('')}</ol>
- ${S.dayline?`<p class="dl">${S.dayline}</p>`:''}<ul class="ap">${S.areas.map(x=>`<li class="${x.tone}${x.a=='l'?' love':''}">${x.a=='l'?'\u2665 ':''}${x.txt}</li>`).join('')}</ul><p class="adv">${S.advice}</p>${evBox(i,pr,2)}</div></div>
- <div class="acts"><button data-pin="${i}" aria-pressed="${PIN==i}">${PIN==i?'\u2605':'\u2606'} ${t.mine}</button><button data-copy="${i}">${t.copy}</button></div></article>`}
-function vEvery(){const t=T(),pr=periodOf('w');if(pr.bad)return`<p class="bad">${t.out}</p>`;const all=all12(pr),sr=all.rs.map(r=>zStars((r.o-all.m)/all.sd)),mx=Math.max(...sr),mn=Math.min(...sr),nmz=v=>sr.map((x,i)=>x==v?nm(SGN,i):'').filter(Boolean).slice(0,3).join(', ');
- const order=[...Array(12).keys()].sort((a,b)=>(b==PIN)-(a==PIN)||a-b);
- return`${navRow(pr.label)}<p class="sum"><b>${t.best}:</b> ${nmz(mx)} <span>|</span> <b>${t.care}:</b> ${nmz(mn)}</p>
- <div class="chips">${[...Array(12).keys()].map(i=>`<button data-jump="${i}" class="${PIN==i?'on':''}">${GL[i]} ${nm(SGN,i)}</button>`).join('')}</div><p class="lgd">${LG[K()]}</p>
- <div class="grid">${order.map(i=>cardE(i,all.rs[i],all,pr)).join('')}</div>`}
+ return dateBar(fd(jd,1),{time:1})+`<div class="hero"><div class="cw">${csSeg()}${svg}</div><div><table class="pt"><thead><tr><th>${t.planet}</th><th>${t.rashi}</th><th>${t.deg}</th><th></th></tr></thead><tbody>${rows}</tbody></table><p class="mw">${t.moonin} <b>${nm(SGN,g.s)}</b> ${t.inr}<br>${fd(g.a,1)} \u2013 ${fd(g.b,1)}</p></div></div>`}
+// ---- My rashifal ----
 function vMe(){const t=T(),f=JSON.parse((()=>{try{return localStorage.getItem('rf')}catch(e){}})()||'{}');
  const opts=places.map((p,i)=>`<option value="${i}"${i==(f.pl||0)?' selected':''}>${p.name}</option>`).join('');
- return`<form id="mf" class="mf"><label>${t.name}<input id="fn" value="${f.nm||''}"></label><label>${t.dob}<input id="fd" type="date" required value="${f.dob||''}" min="1930-01-03" max="2060-12-01"></label>
- <label>${t.tob}<input id="ft" type="time" value="${f.tob||''}"></label><label>${t.place}<select id="fp">${opts}</select></label><button class="go">${t.go}</button></form><div id="mo">${meHtml()}</div>`}
+ return`<section class="mf-wrap"><h2>${t.me}</h2><form id="mf" class="mf"><label>${t.name}<input id="fn" value="${f.nm||''}"></label><label>${t.dob}<input id="fd" type="date" required value="${f.dob||''}" min="1930-01-03" max="2060-12-01"></label>
+ <label>${t.tob}<input id="ft" type="time" value="${f.tob||''}"></label><label>${t.place}<select id="fp">${opts}</select></label><button class="go">${t.go}</button></form></section><div id="mo">${meHtml()}</div>`}
 function calcMe(){const t=T(),v=x=>$(x).value,dob=v('fd');if(!dob)return;
  try{localStorage.setItem('rf',JSON.stringify({nm:v('fn'),dob,tob:v('ft'),pl:+v('fp')}))}catch(e){}
  const[y,m,d]=dob.split('-').map(Number),P=places[+v('fp')],known=!!v('ft');let h=12,mi=0;if(known)[h,mi]=v('ft').split(':').map(Number);
@@ -121,44 +145,53 @@ function meHtml(){const t=T(),D=meData;if(!D)return'';if(D.bad)return`<p class="
   return`<li>${t.c1.replace('{p}',nm(PN,x.k)).replace('{b}',b).replace('{k}',k).replace('{t}',tone)}${hs?` <em>(${ord(hs)} ${t.house}: ${nm(HD,hs-1)})</em>`:''} ${(x.g.a<=pr.T0+.01&&x.g.b>=pr.T1-.01)?'':`<small>${fd(x.g.a)}\u2013${fd(x.g.b)}</small>`}</li>`}).join('');
  const sh=(sgAt(pr.S,6,pr.T0)-ms+12)%12+1,slow=[4,6,7,8].map(k=>{const g=sgAt(pr.S,k,pr.T0),a=(g-ms+12)%12+1;return`<li><b>${nm(PN,k)}</b> ${nm(SGN,g)}: ${ord(a)} ${t.house} (${t.moonsign})${D.n.Lagna!=null?`, ${ord(hl(g))} ${t.house} (${t.lagna}: ${nm(HD,hl(g)-1)})`:''}</li>`}).join('');
  const sd=[12,1,2].includes(sh)?`<p class="sd">${t.sade.replace('{h}',ord(sh))}</p>`:sh==8?`<p class="sd">${t.ash}</p>`:'';
- const tabs=['w','m','c'].map(k=>`<button data-mk="${k}" class="${meKind==k?'on':''}">${t[{w:'week',m:'month',c:'moon'}[k]]}</button>`).join('');
- return`<div class="me"><div class="seg">${tabs}</div>${navRow(pr.label)}${D.amb?`<p class="bad">${t.amb}</p>`:''}
- <div class="hero"><div class="cw">${svg}</div><div><h3>${D.name?D.name+' \u2013 ':''}${t.janma}: ${nm(SGN,ms)}${D.n.Lagna!=null?`, ${t.lagna}: ${nm(SGN,D.n.Lagna)}`:''}</h3>
+ const seg=`<div class="seg">${['w','m','c'].map(k=>`<button data-mk="${k}" class="${meKind==k?'on':''}">${t[{w:'week',m:'month',c:'moon'}[k]]}</button>`).join('')}</div>`;
+ return`<div class="me">${seg}${dateBar(pr.label)}${D.amb?`<p class="bad">${t.amb}</p>`:''}
+ <div class="hero"><div class="cw">${csSeg()}${svg}</div><div><h3>${D.name?D.name+' \u2013 ':''}${t.janma}: ${nm(SGN,ms)}${D.n.Lagna!=null?`, ${t.lagna}: ${nm(SGN,D.n.Lagna)}`:''}</h3>
  <p class="big">${starsHtml(s)} <span>${t['v'+s]}</span></p>${bars(r.ar,all.am)}${sd}</div></div>
  <h4>${t.more}</h4><ul class="ln">${pick(r,pr).map(it=>`<li>${lineTxt(it,pr)}</li>`).join('')}</ul>
  ${cl?`<h4>${t.cont}</h4><ul class="ln">${cl}</ul>`:''}<h4>${t.slow}</h4><ul class="ln">${slow}</ul>${ingress(pr)}</div>`}
-// ---- shell ---------------------------------------------------------------
-function fit(){document.querySelectorAll('.fr').forEach(f=>{let k=1.5;f.style.setProperty('--k',k);while(f.scrollHeight>f.clientHeight+1&&k>.55){k-=.04;f.style.setProperty('--k',k.toFixed(2))}})}
-addEventListener('resize',()=>requestAnimationFrame(fit));document.fonts&&document.fonts.addEventListener('loadingdone',fit);document.fonts&&document.fonts.ready.then(fit);
+// ---- shell ----
+const NAV=[['rashifal','r','nRash'],['mine','m','nMine'],['analysis','a','nAn'],['chart','c','nCh']];
+function themeIcon(){$('th').textContent=document.documentElement.dataset.theme=='light'?'\u263E\uFE0E':'\u2600\uFE0E'}
 function render(){const t=T();document.documentElement.lang=K()=='as'?'as':'en';SG=SGN[K()];
- $('ttl').textContent=t.title;$('sub').textContent=t.sub;$('note').textContent=t.note;$('lg').textContent=t.lang;
- $('tabs').innerHTML=[['every'],['chart'],['week'],['month'],['moon'],['me']].map(([k])=>`<button data-tab="${k=='every'?'everyone':k}" class="${tab==(k=='every'?'everyone':k)?'on':''}">${t[k]}</button>`).join('');
- const dv=`${A.y}-${p2(A.m)}-${p2(A.d)}`,tv=`${p2(A.hh)}:${p2(A.mm)}`;
- $('ctl').innerHTML=tab=='me'?'':`<label>${t.date}<input type="date" id="cd" value="${dv}" min="1930-01-10" max="2060-12-01"></label>${tab=='chart'?`<label>${t.time}<input type="time" id="ct" value="${tv}"></label>`:''}<button id="td">${t.today}</button>${tab=='week'||tab=='everyone'?`<label>${t.ws}<select id="ws"><option value="0"${ws==0?' selected':''}>${t.sun}</option><option value="1"${ws==1?' selected':''}>${t.mon}</option></select></label>`:''}`;
- $('v').innerHTML=tab=='everyone'?vEvery():tab=='chart'?vChart():tab=='week'?vPeriod('w'):tab=='month'?vPeriod('m'):tab=='moon'?vPeriod('c'):vMe();
- if(tab=='me'){$('mf').onsubmit=e=>{e.preventDefault();calcMe();$('mo').innerHTML=meHtml();$('mo').scrollIntoView({behavior:'smooth'})};if(!meData&&$('fd').value){calcMe();$('mo').innerHTML=meHtml()}}
- requestAnimationFrame(fit);
- $('th').textContent=document.documentElement.dataset.theme=='light'?'\u263E':'\u2600'}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
- if(b.dataset.tab){tab=b.dataset.tab;render()}
- else if(b.dataset.cs){cs=b.dataset.cs;if(tab=='me')$('mo').innerHTML=meHtml();else render()}
- else if(b.dataset.mk){meKind=b.dataset.mk;$('mo').innerHTML=meHtml()}
- else if(b.dataset.nav){const d=+b.dataset.nav,k=tab=='me'?meKind:{everyone:'w',week:'w',month:'m',moon:'c'}[tab];
-  if(k=='w')shift(7*d);else if(k=='m')shiftMonth(d);else{const pr=periodOf('c');if(!pr.bad)setAnc(d>0?pr.T1+.02:pr.T0-.02)}
-  if(tab=='me')$('mo').innerHTML=meHtml();else render()}
- else if(b.id=='td'){const d=new Date(Date.now()+5.5*36e5);Object.assign(A,{y:d.getUTCFullYear(),m:d.getUTCMonth()+1,d:d.getUTCDate(),hh:d.getUTCHours(),mm:d.getUTCMinutes()});render()}
- else if(b.dataset.pin){const i=+b.dataset.pin;PIN=PIN==i?-1:i;try{localStorage.setItem('rp',PIN)}catch(e){}render();if(PIN>=0)$('rc'+PIN)?.scrollIntoView({block:'center'})}
- else if(b.dataset.copy){const c=b.closest('.rc');navigator.clipboard?.writeText(`${c.querySelector('h3').textContent.trim()} (${document.querySelector('.nav h2').textContent})\n`+(c.querySelector('.story')?c.querySelector('.story').innerText:c.querySelector('.vd').textContent+'\n'+[...c.querySelectorAll('details li')].map(l=>'- '+l.textContent).join('\n'))).then(()=>toast(T().copied)).catch(()=>{})}
- else if(b.dataset.jump){const c=$('rc'+b.dataset.jump);c.scrollIntoView({behavior:'smooth',block:'center'});const dt=c.querySelector('details');if(dt)dt.open=true}
- else if(b.dataset.all){const d=[...document.querySelectorAll('.rc details')],o=!d.every(x=>x.open);d.forEach(x=>x.open=o)}
- else if(b.id=='th'){const l=document.documentElement.dataset.theme=='light'?'dark':'light';document.documentElement.dataset.theme=l;try{localStorage.setItem('rt',l)}catch(e){}b.textContent=l=='light'?'\u263E':'\u2600'}
+ $('ttl').textContent=t.title;$('sub').textContent=t.sub;$('note').textContent=t.note;$('lg').textContent=t.lang;$('th').setAttribute('aria-label',t.themeL);
+ $('tabs').innerHTML=NAV.map(([k,ic,l])=>`<button data-tab="${k}" class="${tab==k?'on':''}"${tab==k?' aria-current="page"':''}>${IC[ic]}<span>${t[l]}</span></button>`).join('');
+ $('v').innerHTML=tab=='rashifal'?vRashifal():tab=='analysis'?vAnalysis():tab=='chart'?vChart():vMe();
+ if(tab=='mine'){$('mf').onsubmit=e=>{e.preventDefault();calcMe();$('mo').innerHTML=meHtml();$('mo').scrollIntoView({behavior:'smooth'})};if(!meData&&$('fd').value){calcMe();$('mo').innerHTML=meHtml()}}
+ if(tab=='rashifal')centerSel();
+ themeIcon()}
+const refreshMe=()=>{$('mo').innerHTML=meHtml()};
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
+ if(d.tab){tab=d.tab;popOpen=false;render();scrollTo(0,0)}
+ else if(d.cs){cs=d.cs;tab=='mine'?refreshMe():render()}
+ else if(d.mk){meKind=d.mk;refreshMe()}
+ else if(d.ak){anKind=d.ak;render()}
+ else if(d.pop!==undefined){popOpen=!popOpen;document.querySelector('.pop').classList.toggle('on',popOpen);b.setAttribute('aria-expanded',popOpen)}
+ else if(d.nav){const s=+d.nav,k=tab=='mine'?meKind:tab=='analysis'?anKind:tab=='chart'?'d':'w';
+  if(k=='d')shift(s);else if(k=='w')shift(7*s);else if(k=='m')shiftMonth(s);else{const pr=periodOf('c');if(!pr.bad)setAnc(s>0?pr.T1+.02:pr.T0-.02)}
+  tab=='mine'?refreshMe():render()}
+ else if(b.id=='td'){const x=new Date(Date.now()+5.5*36e5);Object.assign(A,{y:x.getUTCFullYear(),m:x.getUTCMonth()+1,d:x.getUTCDate(),hh:x.getUTCHours(),mm:x.getUTCMinutes()});tab=='mine'?refreshMe():render()}
+ else if(d.sel!==undefined||d.ov!==undefined){const i=+(d.sel??d.ov);SEL=i;
+  document.querySelectorAll('[data-sel]').forEach(x=>{const on=+x.dataset.sel==i;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
+  document.querySelectorAll('[data-ov]').forEach(x=>x.classList.toggle('on',+x.dataset.ov==i));
+  $('reading').innerHTML=readHtml(i);if(d.ov!==undefined)$('reading').scrollIntoView({behavior:'smooth',block:'start'});else centerSel()}
+ else if(d.pin){const i=+d.pin;PIN=PIN==i?-1:i;try{localStorage.setItem('rp',PIN)}catch(e){}
+  document.querySelectorAll('[data-pin]').forEach(x=>{const on=PIN==+x.dataset.pin;x.setAttribute('aria-pressed',on);x.textContent=(on?'\u2605':'\u2606')+' '+T().mine});
+  document.querySelectorAll('.zr [data-sel]').forEach(x=>x.classList.toggle('pn',PIN==+x.dataset.sel))}
+ else if(d.copy){const i=+d.copy;let body;
+  if(tab=='rashifal')body=shareText(i);else{const c=$('rc'+i);body=`${nm(SGN,i)} (${document.querySelector('.dbl span').textContent})\n`+c.querySelector('.vd').textContent+'\n'+[...c.querySelectorAll('.ln li')].map(l=>'- '+l.textContent.trim()).join('\n')}
+  navigator.clipboard?.writeText(body).then(()=>toast(T().copied)).catch(()=>{})}
+ else if(d.share){const txt=shareText(+d.share);if(navigator.share)navigator.share({text:txt}).catch(()=>{});else navigator.clipboard?.writeText(txt).then(()=>toast(T().copied)).catch(()=>{})}
+ else if(d.all){const x=[...document.querySelectorAll('.an-r')],o=!x.every(y=>y.open);x.forEach(y=>y.open=o)}
+ else if(b.id=='th'){const l=document.documentElement.dataset.theme=='light'?'dark':'light';document.documentElement.dataset.theme=l;try{localStorage.setItem('rt',l)}catch(e){}themeIcon()}
  else if(b.id=='lg'){L=L=='as'?'en':'as';try{localStorage.setItem('rl',L)}catch(e){}render()}});
-document.addEventListener('change',e=>{const i=e.target;
- if(i.id=='cd'&&i.value){[A.y,A.m,A.d]=i.value.split('-').map(Number);render()}
- else if(i.id=='ct'&&i.value){[A.hh,A.mm]=i.value.split(':').map(Number);render()}
+document.addEventListener('change',e=>{const i=e.target,up=()=>tab=='mine'?refreshMe():render();
+ if(i.id=='cd'&&i.value){[A.y,A.m,A.d]=i.value.split('-').map(Number);up()}
+ else if(i.id=='ct'&&i.value){[A.hh,A.mm]=i.value.split(':').map(Number);up()}
  else if(i.id=='ws'){ws=+i.value;render()}});
 function tzOf(s){s=s.trim();return s=='Asia/Dhaka'?6:s=='Asia/Kathmandu'?5.75:isNaN(+s)?5.5:+s}
-{let th;try{th=localStorage.getItem('rt')}catch(e){}document.documentElement.dataset.theme=th||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}
+{let th;try{th=localStorage.getItem('rt')}catch(e){}document.documentElement.dataset.theme=th||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
 Promise.all([fetch('data/eph.bin').then(r=>r.arrayBuffer()),fetch('data/places.csv').then(r=>r.text())]).then(([b,c])=>{
  initEph(b);places=c.split('\n').slice(1).filter(Boolean).map(l=>{const q=l.split(',');return{name:q[0],lat:+q[1],lon:+q[2],tz:tzOf(q[3]||'')}});
- try{L=localStorage.getItem('rl')||'as'}catch(e){}render()}).catch(()=>{$('v').textContent='Could not load data/eph.bin. Serve this folder over http (e.g. GitHub Pages).'});
+ try{L=localStorage.getItem('rl')||'as'}catch(e){}render()}).catch(err=>{console.error(err);$('v').textContent='Could not load data/eph.bin. Serve this folder over http (e.g. GitHub Pages).'});
